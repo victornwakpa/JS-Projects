@@ -9,13 +9,20 @@ const checkButton = document.getElementById("check-btn");
 let answer, noOfGuesses, guessedNumsArr;
 
 const play = () => {
-    const userGuess = guessInput.value;
+    const userGuess = guessInput.value; // get users input
+
+    // check if the user input is a number from 1-100 and also if the input is a number
     if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
         alert("Please enter a valid number between 1 and 100.")
         return;
     }
+
+    // Add the user input into an array
     guessedNumsArr.push(userGuess);
     noOfGuesses += 1;
+
+    // check if the user guess is equal to the number(answer) generated
+    // by the program
     if (userGuess != answer) {
         if (userGuess < answer) {
             hint.innerHTML = "Too low. Try Again!";
